@@ -1,5 +1,33 @@
-<h1>Pokemon index</h1>
+<div class="container">
+  
+<div class="center-align home-page">
+  <h1>Pokemon index</h1>
+  <h6>click on a name to view information about each pokemon</h6>
+</div>
 
-<div id="pokemons">
-    
+<div class='row'>
+  
+  <div class='col s6 offset-s3 blue-grey lighten-5 z-depth-5'>
+    <table class="bordered">
+      <thead>
+        <tr>
+          <th data-field="name"><h3>Pokemon Name</h3></th>
+          <th data-field="id" class="right-align"><h3>Pokedex</h3></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pokemons['results'].each do |pokemon| %>
+          <tr>
+            <td>
+              <h4><%= link_to pokemon['name'].humanize, pokemon_path(pokemon["url"].split("/pokemon/").last.to_i) %></h4>
+            </td>
+            <td>
+              <h4 id="number" class="right-align"><%= pokemon["url"].split("/pokemon/").last.to_i %></h4>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div> 
 </div>

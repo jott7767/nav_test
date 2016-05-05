@@ -1,2 +1,40 @@
-<h1>Pokemon#show</h1>
-<p>Find me in app/views/pokemon/show.html.erb</p>
+<div class='container'>
+  <div class='center-align home-page'>
+    <h1><%= @pokemon['name'].humanize %></h1>
+    <h3>Type(s):<br />
+      <% @pokemon['types'].each do |type| %>
+        <%= type['type']['name'].capitalize %><br />
+      <% end %>
+    </h3>
+  </div>
+  <a href='/pokemon'><button class='btn'>Back</button></a>
+  <hr />
+  <div class=row>
+    <div class='col s6 blue-grey lighten-3 offset-s3 z-depth-5'>
+      <table class="bordered">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td><h4>Base Experience</h4></td>
+            <td class="right-align"><h4><%=@pokemon['base_experience'] %></h4></td>
+          </tr>
+          <tr>
+            <td><h4>Height</h4></td>
+            <td class="right-align"><h4><%= @pokemon['height'] %></h4></td>
+          </tr>
+          <tr>
+            <td><h4>Weight</h4></td>
+            <td class="right-align"><h4><%= @pokemon['weight'] %></h4></td>
+          </tr>
+          <tr>
+            <td><h4>Moves</h4></td>
+            <td class="right-align"><h4><%= @pokemon['moves'].count %></h4></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--@pokemon['types'][1]['type']['name']-->
